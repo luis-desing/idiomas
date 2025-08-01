@@ -1,0 +1,63 @@
+        /* ... (Estilos CSS sin cambios significativos respecto a la versión anterior) ... */
+        :root {
+            --color-fondo: #f9fafb; --color-contenedor: #ffffff;
+            --color-texto-principal: #333333; --color-texto-secundario: #555555;
+            --color-borde: #ced4da; --color-borde-hover: #007BFF;
+            --color-primario: #007BFF; --color-primario-hover: #0056b3;
+            --color-secundario: #6c757d; --color-exito: #28a745;
+            --color-exito-hover: #218838; --color-exito-fondo: #d4edda;
+            --color-exito-texto: #155724; --color-error-fondo: #f8d7da;
+            --color-error-texto: #721c24; --color-lista-fondo: #f8f9fa;
+            --color-lista-borde: #e9ecef; --color-lista-completado-texto: #adb5bd;
+            --color-lista-completado-fondo: #f1f3f5;
+        }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: var(--color-fondo); display: flex; justify-content: center; padding-top: 20px; padding-bottom: 40px; line-height: 1.6; }
+        .layout-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; width: 95%; max-width: 1250px; }
+        .container-practica { width: 100%; max-width: 600px; padding: 20px 25px 30px 25px; background-color: var(--color-contenedor); border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); order: 1; display: flex; flex-direction: column; }
+        #verbosListaContainer { width: 100%; max-width: 400px; padding: 20px; background-color: var(--color-lista-fondo); border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); order: 2; max-height: 650px; overflow-y: auto; align-self: flex-start; }
+        #verbosListaContainer h2 { text-align: center; color: #343a40; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #dee2e6; padding-bottom: 10px; font-size: 1.3em; }
+        #listaVerbosCompleta { list-style: none; padding-left: 0; margin: 0; font-size: 0.95em; color: #495057; counter-reset: verbo-counter; }
+        #listaVerbosCompleta li { padding: 6px 8px 6px 3em; border-bottom: 1px solid var(--color-lista-borde); transition: all 0.3s ease; position: relative; counter-increment: verbo-counter; word-break: break-word; }
+        #listaVerbosCompleta li::before { content: counter(verbo-counter) "."; position: absolute; left: 8px; top: 6px; font-weight: bold; color: var(--color-secundario); width: 2.2em; text-align: right; padding-right: 0.6em; }
+        #listaVerbosCompleta li:last-child { border-bottom: none; }
+        .verbo-completado { text-decoration: line-through; color: var(--color-lista-completado-texto); background-color: var(--color-lista-completado-fondo); opacity: 0.8; }
+        #listaVerbosCompleta li:not(.verbo-completado):hover { background-color: var(--color-lista-borde); }
+        h1 { text-align: center; color: var(--color-texto-principal); margin-bottom: 15px; }
+        h2.practica-subtitulo { margin-bottom: 10px; font-size: 1.1em; color: var(--color-texto-secundario); text-align: center; font-weight: normal;}
+        #seleccionIdioma { text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        #seleccionIdioma h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.1em; color: var(--color-texto-secundario); font-weight: normal; }
+        .btn-idioma { padding: 8px 15px; margin: 0 5px; border: 1px solid var(--color-borde); border-radius: 6px; background-color: #f8f9fa; color: var(--color-primario); font-size: 0.9em; cursor: pointer; transition: all 0.3s ease; }
+        .btn-idioma:hover { background-color: #e2e6ea; border-color: var(--color-primario); }
+        .btn-idioma.active { background-color: var(--color-primario); color: white; border-color: var(--color-primario); font-weight: bold; }
+        .inicio-control { text-align: center; margin-bottom: 25px; }
+        #botonIniciarReiniciar { padding: 10px 18px; border: none; border-radius: 8px; background-color: var(--color-primario); color: white; font-size: 15px; cursor: pointer; transition: background-color 0.3s ease, transform 0.1s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        #botonIniciarReiniciar:hover { background-color: var(--color-primario-hover); }
+        #botonIniciarReiniciar:active { transform: translateY(1px); box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        #cargaArchivo { margin-bottom: 25px; padding: 15px; background-color: #eef1f3; border-radius: 8px; text-align: center; }
+        #cargaArchivo label { display: block; margin-bottom: 8px; font-weight: bold; color: #495057; }
+        #archivoVerbos { display: block; margin: 5px auto 10px auto; }
+        #estadoArchivo { font-style: italic; color: #6c757d; font-size: 0.9em; display: block; }
+        #formatoInfo { font-size: 0.8em; color: #888; margin-top: 5px; display: block;}
+        #verbo { text-align: center; margin-bottom: 20px; min-height: 60px; }
+        #verbo h2 span#langFromLabel { font-weight: bold; /* Color ya heredado */}
+        #verbo-palabra { font-size: 2.0em; font-weight: bold; color: var(--color-primario); margin-bottom: 10px; min-height: 1.5em; }
+        #opciones { display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 25px; min-height: 100px; }
+        .opcion { width: 100%; max-width: 48%; padding: 15px; margin-bottom: 12px; border: 2px solid var(--color-borde); border-radius: 8px; cursor: pointer; text-align: center; background-color: #f8f9fa; transition: all 0.3s ease; font-size: 1em; color: #495057; box-sizing: border-box; min-height: 50px; }
+         @media only screen and (min-width: 481px) { .opcion { width: 48%; } }
+        .opcion:hover { background-color: #e2e6ea; border-color: var(--color-borde-hover); }
+        .opcion:disabled { cursor: not-allowed; background-color: #e9ecef; color: #adb5bd; border-color: #dee2e6; }
+        #resultado { text-align: center; margin-bottom: 15px; min-height: 30px; }
+        #resultado-texto { font-size: 1.15em; color: var(--color-texto-principal); margin-bottom: 10px; font-weight: bold; }
+        #contadorProgreso { text-align: center; font-size: 1em; color: var(--color-texto-secundario); margin-bottom: 25px; font-weight: bold; }
+        #contadorProgreso span { font-weight: bold; }
+        #verbosAcertados { color: var(--color-exito); }
+        #totalVerbosPractica { color: var(--color-primario);}
+        #siguiente { display: block; width: auto; margin: 0 auto; padding: 12px 24px; border: none; border-radius: 8px; background-color: var(--color-exito); color: white; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.1s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: auto; }
+        #siguiente:hover { background-color: var(--color-exito-hover); }
+        #siguiente:disabled { background-color: var(--color-secundario); opacity: 0.7; cursor: not-allowed; box-shadow: none; transform: none; }
+        #siguiente:active:not(:disabled) { transform: translateY(1px); box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        @media only screen and (max-width: 900px) { .layout-container { flex-direction: column; align-items: center; gap: 20px; } .container-practica, #verbosListaContainer { max-width: 600px; width: 95%; order: 0; align-self: center; } #verbosListaContainer { margin-top: 20px; max-height: 450px; } }
+        @media only screen and (max-width: 480px) { body { padding-top: 10px; padding-bottom: 20px;} .container-practica { padding: 15px; } h1 { font-size: 1.5em; margin-bottom: 15px;} h2.practica-subtitulo { font-size: 1em; } #verbo-palabra { font-size: 1.8em; } .opcion { font-size: 0.95em; padding: 12px; width: 100%; max-width: 100%;} #resultado-texto { font-size: 1.1em; } #contadorProgreso { font-size: 0.95em; margin-bottom: 20px; } #siguiente { width: 100%; padding: 14px 20px; font-size: 16px; } #botonIniciarReiniciar { font-size: 14px; padding: 9px 16px; } #listaVerbosCompleta li { padding: 5px 8px 5px 2.8em; } #listaVerbosCompleta li::before { width: 2em; left: 5px; top: 5px;} }
+        .correcta { background-color: var(--color-exito-fondo) !important; border-color: var(--color-exito) !important; color: var(--color-exito-texto) !important; }
+        .incorrecta-seleccionada { background-color: var(--color-error-fondo) !important; border-color: #f5c6cb !important; color: var(--color-error-texto) !important; }
+        .respuesta-correcta-no-elegida { outline: 2px solid #ffc107; outline-offset: 1px; }
