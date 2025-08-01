@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Idiomas</title>
+    <link rel="stylesheet" href="idiomas.css">
+</head>
+<body>
+    <div class="layout-container">
+        <div class="container-practica">
+            <h1>Práctica de Idiomas</h1>
+
+            <!-- HTML SIN COMENTARIOS INVÁLIDOS -->
+            <div id="seleccionIdioma">
+                <h3>Selecciona un idioma por defecto:</h3>
+                <button id="btnIdiomaIngles" class="btn-idioma active">Inglés &rarr; Español</button>
+                <button id="btnIdiomaItaliano" class="btn-idioma">Italiano &rarr; Español</button>
+            </div>
+            <div class="inicio-control">
+                 <button id="botonIniciarReiniciar">Iniciar / Reiniciar Práctica Actual</button>
+            </div>
+             <div id="cargaArchivo">
+                <label for="archivoVerbos">O carga tu archivo (.txt)</label>
+                <input type="file" id="archivoVerbos" accept=".txt">
+                <span id="estadoArchivo">Usando verbos por defecto.</span>
+                <span id="formatoInfo">(Formato: palabra_origen,traduccion) <br> (Opcional: 1ª línea `#LANG:Origen,Destino`)</span>
+            </div>
+             <div id="verbo">
+                <h2 class="practica-subtitulo">Verbo en <span id="langFromLabel">Inglés</span>:</h2>
+                <p id="verbo-palabra">...</p>
+            </div>
+            <div id="opciones">
+                <button id="opcion1" class="opcion"></button>
+                <button id="opcion2" class="opcion"></button>
+                <button id="opcion3" class="opcion"></button>
+            </div>
+            <div id="resultado">
+                <h2 class="practica-subtitulo">Resultado:</h2>
+                <p id="resultado-texto"></p>
+            </div>
+            <div id="contadorProgreso">
+                <span id="verbosAcertados">0</span> / <span id="totalVerbosPractica">0</span> Palabras Acertadas
+            </div>
+            <button id="siguiente">Siguiente Palabra</button>
+        </div>
+        <div id="verbosListaContainer">
+             <h2>Lista (<span id="langListLabel">Inglés</span>) (<span id="totalVerbosLista">0</span>)</h2>
+             <ul id="listaVerbosCompleta">
+                 {/* Las palabras se cargarán aquí */}
+             </ul>
+        </div>
+    </div>
+
+    <script src="idiomas.js"></script>
+</body>
+</html>
