@@ -74,6 +74,25 @@
 
             console.log("DOM cargado, cargando idioma por defecto (Inglés)...");
             cargarIdiomaDefault('ingles'); // Carga Inglés al inicio
+
+            // --- Lógica para controlar la lista plegable ---
+            const listaVerbosPlegable = document.getElementById('listaVerbosPlegable');
+            
+            function manejarEstadoPlegable() {
+                if (!listaVerbosPlegable) return;
+                // El punto de quiebre es 900px, igual que en el CSS
+                if (window.innerWidth <= 900) {
+                    listaVerbosPlegable.open = false;
+                } else {
+                    listaVerbosPlegable.open = true;
+                }
+            }
+
+            // Comprobar al cargar la página
+            manejarEstadoPlegable();
+
+            // Comprobar si se cambia el tamaño de la ventana
+            window.addEventListener('resize', manejarEstadoPlegable);
         });
 
         // --- Cargar Idioma por Defecto ---

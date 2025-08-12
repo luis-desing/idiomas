@@ -1,3 +1,10 @@
+/* --- Global Box Sizing --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* ... (Variables CSS sin cambios) ... */
 :root {
     --color-fondo: #f9fafb; --color-contenedor: #ffffff;
@@ -13,13 +20,16 @@
 }
 body { 
     font-family: 'Arial', sans-serif; margin: 0; padding: 0; 
-    background-color: var(--color-fondo); display: flex; 
-    justify-content: center; padding: 20px 15px 40px 15px; 
+    background-color: var(--color-fondo); 
+    display: flex; /* Restaurado para centrar */
+    justify-content: center; /* Restaurado para centrar */
     line-height: 1.6; 
+    overflow-x: hidden; /* Previene el desbordamiento horizontal */
 }
 .layout-container { 
     display: flex; flex-wrap: wrap; justify-content: center; 
     gap: 25px; width: 100%; max-width: 1250px; 
+    padding: 20px 15px 40px 15px; /* Padding movido aquí */
 }
 .container-practica { 
     width: 100%; max-width: 600px; padding: 20px 25px 30px 25px; 
@@ -186,6 +196,8 @@ h2.practica-subtitulo {
     font-size: 2.0em; font-weight: bold; 
     color: var(--color-primario); margin-bottom: 10px; 
     min-height: 1.5em; 
+    overflow-wrap: break-word; /* Previene desbordamiento de palabras largas */
+    word-break: break-word; /* Compatibilidad adicional */
 }
 #opciones { 
     display: flex; flex-wrap: wrap; 
@@ -197,7 +209,7 @@ h2.practica-subtitulo {
     padding: 15px; border: 2px solid var(--color-borde); 
     border-radius: 8px; cursor: pointer; text-align: center; 
     background-color: #f8f9fa; transition: all 0.3s ease; 
-    font-size: 1em; color: #495057; box-sizing: border-box; 
+    font-size: 1em; color: #495057; 
     min-height: 50px; 
 }
 .opcion:hover { 
@@ -255,7 +267,9 @@ h2.practica-subtitulo {
     } 
 }
 @media only screen and (max-width: 480px) { 
-    body { padding: 10px 10px 20px 10px;} 
+    .layout-container { 
+        padding: 10px 10px 20px 10px; /* Padding más ajustado para móviles */
+    } 
     .container-practica { padding: 15px; } 
     h1 { font-size: 1.5em; margin-bottom: 15px;} 
     h2.practica-subtitulo { font-size: 1em; } 
