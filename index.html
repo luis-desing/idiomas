@@ -44,12 +44,16 @@
             </div>
             <button id="siguiente">Siguiente Palabra</button>
         </div>
-        <div id="verbosListaContainer">
-             <h2>Lista (<span id="langListLabel">Inglés</span>) (<span id="totalVerbosLista">0</span>)</h2>
-             <ul id="listaVerbosCompleta">
-                 {/* Las palabras se cargarán aquí */}
-             </ul>
-        </div>
+        <details class="lista-plegable">
+            <summary>
+                <h2>Ver Lista de Palabras (<span id="langListLabel">Inglés</span>) (<span id="totalVerbosLista">0</span>)</h2>
+            </summary>
+            <div id="verbosListaContainer">
+                 <ul id="listaVerbosCompleta">
+                     {/* Las palabras se cargarán aquí */}
+                 </ul>
+            </div>
+        </details>
     </div>
 
     <script src="idiomas.js"></script>
